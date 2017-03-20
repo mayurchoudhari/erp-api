@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Module</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			text-align: center;
+			font-family: verdana;
+		}
+		#type {
+			PADDING: 5PX;
+			width: 150px;
+			text-transform: capitalize;
+			border-color: #dedede;
+		}
+		#filename {
+			PADDING: 5PX;
+			width: 150px;
+			text-transform: capitalize;
+		}
+		#name {
+			PADDING: 5PX;
+			width: 150px;
+			text-transform: capitalize;
+			border-color: #dedede;
+		}
+		button {
+			PADDING: 5PX;
+			width: 150px;
+			text-transform: capitalize;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+	<h1>{{ module }}</h1>
+	<select id="type">
+		<option>details</option>
+		<option>summary</option>
+	</select>
+	<input type="text" id="filename" placeholder="Excel file name" value="{{module}}" disabled />
+	<input type="text" id="name" value="{{name}}" placeholder="Enter Name/Style" required/>
+	<button onclick="getit()">Download</button>
+	<script>
+		function getit() {
+			var file = $("#filename").val();
+			var nme = $("#name").val();
+			file = file.replace(".","_");
+			var type = $("#type option:selected").val();
+			var url = "http://pclotherp.tk/api/reports/";
+			$.get("/"+file+"?type="+type+"&name="+nme, function(data){
+				url = url + JSON.parse(data)['file'];
+				window.open(url, '_self');
+			});
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,471 @@
+[10/Mar/2017:05:07:48] ENGINE Listening for SIGUSR1.
+[10/Mar/2017:05:07:48] ENGINE Listening for SIGHUP.
+[10/Mar/2017:05:07:48] ENGINE Listening for SIGTERM.
+[10/Mar/2017:05:07:48] ENGINE Bus STARTING
+CherryPy Checker:
+The Application mounted at '' has an empty config.
+
+[10/Mar/2017:05:07:48] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Mar/2017:05:07:48] ENGINE Started monitor thread 'Autoreloader'.
+[10/Mar/2017:05:07:48] ENGINE Serving on http://0.0.0.0:8081
+[10/Mar/2017:05:07:48] ENGINE Bus STARTED
+203.192.243.73 - - [10/Mar/2017:05:08:36] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:08:37] "GET /favicon.ico HTTP/1.1" 200 1406 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:08:49] "GET /Costing_details?type=details&name= HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:05:13:08] ENGINE Restarting because /var/www/html/api/reports/Costing_details.py changed.
+[10/Mar/2017:05:13:08] ENGINE Stopped thread 'Autoreloader'.
+[10/Mar/2017:05:13:08] ENGINE Bus STOPPING
+[10/Mar/2017:05:13:08] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8081)) shut down
+[10/Mar/2017:05:13:08] ENGINE Stopped thread '_TimeoutMonitor'.
+[10/Mar/2017:05:13:08] ENGINE Bus STOPPED
+[10/Mar/2017:05:13:08] ENGINE Bus EXITING
+[10/Mar/2017:05:13:08] ENGINE Bus EXITED
+[10/Mar/2017:05:13:08] ENGINE Waiting for child threads to terminate...
+[10/Mar/2017:05:13:08] ENGINE Re-spawning python3 app1.py
+[10/Mar/2017:05:13:09] ENGINE Listening for SIGHUP.
+[10/Mar/2017:05:13:09] ENGINE Listening for SIGUSR1.
+[10/Mar/2017:05:13:09] ENGINE Listening for SIGTERM.
+[10/Mar/2017:05:13:09] ENGINE Bus STARTING
+CherryPy Checker:
+The Application mounted at '' has an empty config.
+
+[10/Mar/2017:05:13:09] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Mar/2017:05:13:09] ENGINE Started monitor thread 'Autoreloader'.
+[10/Mar/2017:05:13:09] ENGINE Serving on http://0.0.0.0:8081
+[10/Mar/2017:05:13:09] ENGINE Bus STARTED
+203.192.243.73 - - [10/Mar/2017:05:13:13] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:05:13:15] HTTP 
+Request Headers:
+  HOST: 138.197.220.205:8081
+  CONNECTION: keep-alive
+  Remote-Addr: 203.192.243.73
+  ACCEPT-ENCODING: gzip, deflate, sdch
+  ACCEPT: */*
+  X-REQUESTED-WITH: XMLHttpRequest
+  REFERER: http://138.197.220.205:8081/?module=Costing.details
+  ACCEPT-LANGUAGE: en-US,en;q=0.8
+  USER-AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+[10/Mar/2017:05:13:15] HTTP 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cprequest.py", line 670, in respond
+    response.body = self.handler()
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/lib/encoding.py", line 220, in __call__
+    self.body = self.oldhandler(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cpdispatch.py", line 60, in __call__
+    return self.callable(*self.args, **self.kwargs)
+  File "app1.py", line 23, in Costing_details
+    filename = Costing_details.getxlsx("Costing_"+type, name)
+  File "/var/www/html/api/reports/Costing_details.py", line 46, in getxlsx
+    worksheet.write('A1', 'Style #', do)
+NameError: name 'do' is not defined
+203.192.243.73 - - [10/Mar/2017:05:13:15] "GET /Costing_details?type=details&name= HTTP/1.1" 500 1538 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:05:13:17] HTTP 
+Request Headers:
+  HOST: 138.197.220.205:8081
+  CONNECTION: keep-alive
+  Remote-Addr: 203.192.243.73
+  ACCEPT-ENCODING: gzip, deflate, sdch
+  ACCEPT: */*
+  X-REQUESTED-WITH: XMLHttpRequest
+  REFERER: http://138.197.220.205:8081/?module=Costing.details
+  ACCEPT-LANGUAGE: en-US,en;q=0.8
+  USER-AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+[10/Mar/2017:05:13:17] HTTP 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cprequest.py", line 670, in respond
+    response.body = self.handler()
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/lib/encoding.py", line 220, in __call__
+    self.body = self.oldhandler(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cpdispatch.py", line 60, in __call__
+    return self.callable(*self.args, **self.kwargs)
+  File "app1.py", line 23, in Costing_details
+    filename = Costing_details.getxlsx("Costing_"+type, name)
+  File "/var/www/html/api/reports/Costing_details.py", line 46, in getxlsx
+    worksheet.write('A1', 'Style #', do)
+NameError: name 'do' is not defined
+203.192.243.73 - - [10/Mar/2017:05:13:17] "GET /Costing_details?type=details&name= HTTP/1.1" 500 1538 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:05:13:24] HTTP 
+Request Headers:
+  HOST: 138.197.220.205:8081
+  CONNECTION: keep-alive
+  Remote-Addr: 203.192.243.73
+  UPGRADE-INSECURE-REQUESTS: 1
+  ACCEPT-ENCODING: gzip, deflate, sdch
+  ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  ACCEPT-LANGUAGE: en-US,en;q=0.8
+  USER-AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+[10/Mar/2017:05:13:24] HTTP 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cprequest.py", line 670, in respond
+    response.body = self.handler()
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/lib/encoding.py", line 220, in __call__
+    self.body = self.oldhandler(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cpdispatch.py", line 60, in __call__
+    return self.callable(*self.args, **self.kwargs)
+  File "app1.py", line 23, in Costing_details
+    filename = Costing_details.getxlsx("Costing_"+type, name)
+  File "/var/www/html/api/reports/Costing_details.py", line 46, in getxlsx
+    worksheet.write('A1', 'Style #', do)
+NameError: name 'do' is not defined
+203.192.243.73 - - [10/Mar/2017:05:13:24] "GET /Costing_details?type=details&name= HTTP/1.1" 500 1538 "" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:05:14:30] ENGINE Restarting because /var/www/html/api/reports/Costing_details.py changed.
+[10/Mar/2017:05:14:30] ENGINE Stopped thread 'Autoreloader'.
+[10/Mar/2017:05:14:30] ENGINE Bus STOPPING
+[10/Mar/2017:05:14:30] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8081)) shut down
+[10/Mar/2017:05:14:30] ENGINE Stopped thread '_TimeoutMonitor'.
+[10/Mar/2017:05:14:30] ENGINE Bus STOPPED
+[10/Mar/2017:05:14:30] ENGINE Bus EXITING
+[10/Mar/2017:05:14:30] ENGINE Bus EXITED
+[10/Mar/2017:05:14:30] ENGINE Waiting for child threads to terminate...
+[10/Mar/2017:05:14:30] ENGINE Re-spawning python3 app1.py
+[10/Mar/2017:05:14:31] ENGINE Listening for SIGTERM.
+[10/Mar/2017:05:14:31] ENGINE Listening for SIGUSR1.
+[10/Mar/2017:05:14:31] ENGINE Listening for SIGHUP.
+[10/Mar/2017:05:14:31] ENGINE Bus STARTING
+CherryPy Checker:
+The Application mounted at '' has an empty config.
+
+[10/Mar/2017:05:14:31] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Mar/2017:05:14:31] ENGINE Started monitor thread 'Autoreloader'.
+[10/Mar/2017:05:14:31] ENGINE Serving on http://0.0.0.0:8081
+[10/Mar/2017:05:14:31] ENGINE Bus STARTED
+203.192.243.73 - - [10/Mar/2017:05:14:44] "GET /Costing_details?type=details&name= HTTP/1.1" 200 31 "" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:14:46] "GET /Costing_details?type=details&name= HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:05:18:09] ENGINE Restarting because /var/www/html/api/reports/Costing_details.py changed.
+[10/Mar/2017:05:18:09] ENGINE Stopped thread 'Autoreloader'.
+[10/Mar/2017:05:18:09] ENGINE Bus STOPPING
+[10/Mar/2017:05:18:09] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8081)) shut down
+[10/Mar/2017:05:18:09] ENGINE Stopped thread '_TimeoutMonitor'.
+[10/Mar/2017:05:18:09] ENGINE Bus STOPPED
+[10/Mar/2017:05:18:09] ENGINE Bus EXITING
+[10/Mar/2017:05:18:09] ENGINE Bus EXITED
+[10/Mar/2017:05:18:09] ENGINE Waiting for child threads to terminate...
+[10/Mar/2017:05:18:09] ENGINE Re-spawning python3 app1.py
+[10/Mar/2017:05:18:09] ENGINE Listening for SIGTERM.
+[10/Mar/2017:05:18:09] ENGINE Listening for SIGUSR1.
+[10/Mar/2017:05:18:09] ENGINE Listening for SIGHUP.
+[10/Mar/2017:05:18:09] ENGINE Bus STARTING
+CherryPy Checker:
+The Application mounted at '' has an empty config.
+
+[10/Mar/2017:05:18:09] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Mar/2017:05:18:09] ENGINE Started monitor thread 'Autoreloader'.
+[10/Mar/2017:05:18:10] ENGINE Serving on http://0.0.0.0:8081
+[10/Mar/2017:05:18:10] ENGINE Bus STARTED
+203.192.243.73 - - [10/Mar/2017:05:18:13] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:18:15] "GET /Costing_details?type=details&name= HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:05:22:01] ENGINE Restarting because /var/www/html/api/reports/Costing_details.py changed.
+[10/Mar/2017:05:22:01] ENGINE Stopped thread 'Autoreloader'.
+[10/Mar/2017:05:22:01] ENGINE Bus STOPPING
+[10/Mar/2017:05:22:01] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8081)) shut down
+[10/Mar/2017:05:22:01] ENGINE Stopped thread '_TimeoutMonitor'.
+[10/Mar/2017:05:22:01] ENGINE Bus STOPPED
+[10/Mar/2017:05:22:01] ENGINE Bus EXITING
+[10/Mar/2017:05:22:01] ENGINE Bus EXITED
+[10/Mar/2017:05:22:01] ENGINE Waiting for child threads to terminate...
+[10/Mar/2017:05:22:01] ENGINE Re-spawning python3 app1.py
+[10/Mar/2017:05:22:01] ENGINE Listening for SIGHUP.
+[10/Mar/2017:05:22:01] ENGINE Listening for SIGUSR1.
+[10/Mar/2017:05:22:01] ENGINE Listening for SIGTERM.
+[10/Mar/2017:05:22:01] ENGINE Bus STARTING
+CherryPy Checker:
+The Application mounted at '' has an empty config.
+
+[10/Mar/2017:05:22:01] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Mar/2017:05:22:01] ENGINE Started monitor thread 'Autoreloader'.
+[10/Mar/2017:05:22:01] ENGINE Serving on http://0.0.0.0:8081
+[10/Mar/2017:05:22:01] ENGINE Bus STARTED
+203.192.243.73 - - [10/Mar/2017:05:22:05] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:22:07] "GET /Costing_details?type=details&name= HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:05:26:29] ENGINE Restarting because /var/www/html/api/reports/Costing_summary.py changed.
+[10/Mar/2017:05:26:29] ENGINE Stopped thread 'Autoreloader'.
+[10/Mar/2017:05:26:29] ENGINE Bus STOPPING
+[10/Mar/2017:05:26:30] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8081)) shut down
+[10/Mar/2017:05:26:30] ENGINE Stopped thread '_TimeoutMonitor'.
+[10/Mar/2017:05:26:30] ENGINE Bus STOPPED
+[10/Mar/2017:05:26:30] ENGINE Bus EXITING
+[10/Mar/2017:05:26:30] ENGINE Bus EXITED
+[10/Mar/2017:05:26:30] ENGINE Waiting for child threads to terminate...
+[10/Mar/2017:05:26:30] ENGINE Re-spawning python3 app1.py
+[10/Mar/2017:05:26:30] ENGINE Listening for SIGUSR1.
+[10/Mar/2017:05:26:30] ENGINE Listening for SIGTERM.
+[10/Mar/2017:05:26:30] ENGINE Listening for SIGHUP.
+[10/Mar/2017:05:26:30] ENGINE Bus STARTING
+CherryPy Checker:
+The Application mounted at '' has an empty config.
+
+[10/Mar/2017:05:26:30] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Mar/2017:05:26:30] ENGINE Started monitor thread 'Autoreloader'.
+[10/Mar/2017:05:26:30] ENGINE Serving on http://0.0.0.0:8081
+[10/Mar/2017:05:26:30] ENGINE Bus STARTED
+203.192.243.73 - - [10/Mar/2017:05:26:40] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:26:43] "GET /Costing_details?type=details&name= HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:26:55] "GET /Costing_details?type=details&name=asdf HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:27:08] "GET /Costing_details?type=details&name=test HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:27:26] "GET /Costing_details?type=details&name=aksdf HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:27:42] "GET /Costing_details?type=details&name=sample HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:28:04] "GET /Costing_details?type=summary&name=asdf HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:29:12] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:29:18] "GET /Costing_details?type=summary&name=choc HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:29:37] "GET /Costing_details?type=summary&name=choc,%20sample HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:31:08] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:05:38:02] ENGINE Restarting because /var/www/html/api/reports/Costing_summary.py changed.
+[10/Mar/2017:05:38:02] ENGINE Stopped thread 'Autoreloader'.
+[10/Mar/2017:05:38:02] ENGINE Bus STOPPING
+[10/Mar/2017:05:38:02] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8081)) shut down
+[10/Mar/2017:05:38:02] ENGINE Stopped thread '_TimeoutMonitor'.
+[10/Mar/2017:05:38:02] ENGINE Bus STOPPED
+[10/Mar/2017:05:38:02] ENGINE Bus EXITING
+[10/Mar/2017:05:38:02] ENGINE Bus EXITED
+[10/Mar/2017:05:38:03] ENGINE Waiting for child threads to terminate...
+[10/Mar/2017:05:38:03] ENGINE Re-spawning python3 app1.py
+[10/Mar/2017:05:38:03] ENGINE Listening for SIGUSR1.
+[10/Mar/2017:05:38:03] ENGINE Listening for SIGHUP.
+[10/Mar/2017:05:38:03] ENGINE Listening for SIGTERM.
+[10/Mar/2017:05:38:03] ENGINE Bus STARTING
+CherryPy Checker:
+The Application mounted at '' has an empty config.
+
+[10/Mar/2017:05:38:03] ENGINE Started monitor thread 'Autoreloader'.
+[10/Mar/2017:05:38:03] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Mar/2017:05:38:03] ENGINE Serving on http://0.0.0.0:8081
+[10/Mar/2017:05:38:03] ENGINE Bus STARTED
+203.192.243.73 - - [10/Mar/2017:05:39:01] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:39:05] "GET /Costing_details?type=summary&name= HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:39:18] "GET /Costing_details?type=summary&name=asdf HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:05:49:42] ENGINE Restarting because /var/www/html/api/reports/Costing_summary.py changed.
+[10/Mar/2017:05:49:42] ENGINE Stopped thread 'Autoreloader'.
+[10/Mar/2017:05:49:42] ENGINE Bus STOPPING
+[10/Mar/2017:05:49:42] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8081)) shut down
+[10/Mar/2017:05:49:42] ENGINE Stopped thread '_TimeoutMonitor'.
+[10/Mar/2017:05:49:42] ENGINE Bus STOPPED
+[10/Mar/2017:05:49:42] ENGINE Bus EXITING
+[10/Mar/2017:05:49:42] ENGINE Bus EXITED
+[10/Mar/2017:05:49:43] ENGINE Waiting for child threads to terminate...
+[10/Mar/2017:05:49:43] ENGINE Re-spawning python3 app1.py
+[10/Mar/2017:05:49:43] ENGINE Listening for SIGUSR1.
+[10/Mar/2017:05:49:43] ENGINE Listening for SIGTERM.
+[10/Mar/2017:05:49:43] ENGINE Listening for SIGHUP.
+[10/Mar/2017:05:49:43] ENGINE Bus STARTING
+CherryPy Checker:
+The Application mounted at '' has an empty config.
+
+[10/Mar/2017:05:49:43] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Mar/2017:05:49:43] ENGINE Started monitor thread 'Autoreloader'.
+[10/Mar/2017:05:49:43] ENGINE Serving on http://0.0.0.0:8081
+[10/Mar/2017:05:49:43] ENGINE Bus STARTED
+203.192.243.73 - - [10/Mar/2017:05:49:52] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:49:56] "GET /Costing_details?type=summary&name= HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:05:50:10] "GET /Costing_details?type=summary&name=sample HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:06:58] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:06:59] "GET /favicon.ico HTTP/1.1" 200 1406 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:07:04] "GET /Costing_details?type=details&name=asdf HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:07:20] "GET /Costing_details?type=details&name=choc HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:07:33] "GET /Costing_details?type=details&name=sample HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:07:54] "GET /Costing_details?type=summary&name=choc HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:08:07] "GET /Costing_details?type=summary&name=asdf HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:13:12:29] ENGINE Restarting because /var/www/html/api/reports/Costing_details.py changed.
+[10/Mar/2017:13:12:29] ENGINE Stopped thread 'Autoreloader'.
+[10/Mar/2017:13:12:29] ENGINE Bus STOPPING
+[10/Mar/2017:13:12:29] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8081)) shut down
+[10/Mar/2017:13:12:29] ENGINE Stopped thread '_TimeoutMonitor'.
+[10/Mar/2017:13:12:29] ENGINE Bus STOPPED
+[10/Mar/2017:13:12:29] ENGINE Bus EXITING
+[10/Mar/2017:13:12:29] ENGINE Bus EXITED
+[10/Mar/2017:13:12:29] ENGINE Waiting for child threads to terminate...
+[10/Mar/2017:13:12:29] ENGINE Re-spawning python3 app1.py
+[10/Mar/2017:13:12:30] ENGINE Listening for SIGUSR1.
+[10/Mar/2017:13:12:30] ENGINE Listening for SIGHUP.
+[10/Mar/2017:13:12:30] ENGINE Listening for SIGTERM.
+[10/Mar/2017:13:12:30] ENGINE Bus STARTING
+CherryPy Checker:
+The Application mounted at '' has an empty config.
+
+[10/Mar/2017:13:12:30] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Mar/2017:13:12:30] ENGINE Started monitor thread 'Autoreloader'.
+[10/Mar/2017:13:12:30] ENGINE Serving on http://0.0.0.0:8081
+[10/Mar/2017:13:12:30] ENGINE Bus STARTED
+[10/Mar/2017:13:12:38] HTTP 
+Request Headers:
+  CONNECTION: keep-alive
+  HOST: 138.197.220.205:8081
+  ACCEPT-ENCODING: gzip, deflate, sdch
+  USER-AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+  ACCEPT-LANGUAGE: en-US,en;q=0.8
+  REFERER: http://138.197.220.205:8081/?module=Costing.details
+  Remote-Addr: 203.192.243.73
+  X-REQUESTED-WITH: XMLHttpRequest
+  ACCEPT: */*
+[10/Mar/2017:13:12:38] HTTP 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cprequest.py", line 670, in respond
+    response.body = self.handler()
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/lib/encoding.py", line 220, in __call__
+    self.body = self.oldhandler(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cpdispatch.py", line 60, in __call__
+    return self.callable(*self.args, **self.kwargs)
+  File "app1.py", line 23, in Costing_details
+    filename = Costing_details.getxlsx("Costing_"+type, name)
+  File "/var/www/html/api/reports/Costing_details.py", line 247, in getxlsx
+    img = Image.open(BytesIO(requests.get(url).content))
+  File "/usr/local/lib/python3.5/dist-packages/PIL/Image.py", line 2349, in open
+    % (filename if filename else fp))
+OSError: cannot identify image file <_io.BytesIO object at 0x7fd6fc28d5c8>
+203.192.243.73 - - [10/Mar/2017:13:12:38] "GET /Costing_details?type=details&name=asdf HTTP/1.1" 500 1719 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:12:43] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:12:53] "GET /Costing_details?type=details&name= HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:13:13:06] HTTP 
+Request Headers:
+  CONNECTION: keep-alive
+  HOST: 138.197.220.205:8081
+  ACCEPT-ENCODING: gzip, deflate, sdch
+  USER-AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+  ACCEPT-LANGUAGE: en-US,en;q=0.8
+  REFERER: http://138.197.220.205:8081/?module=Costing.details
+  Remote-Addr: 203.192.243.73
+  X-REQUESTED-WITH: XMLHttpRequest
+  ACCEPT: */*
+[10/Mar/2017:13:13:06] HTTP 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cprequest.py", line 670, in respond
+    response.body = self.handler()
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/lib/encoding.py", line 220, in __call__
+    self.body = self.oldhandler(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cpdispatch.py", line 60, in __call__
+    return self.callable(*self.args, **self.kwargs)
+  File "app1.py", line 23, in Costing_details
+    filename = Costing_details.getxlsx("Costing_"+type, name)
+  File "/var/www/html/api/reports/Costing_details.py", line 247, in getxlsx
+    img = Image.open(BytesIO(requests.get(url).content))
+  File "/usr/local/lib/python3.5/dist-packages/PIL/Image.py", line 2349, in open
+    % (filename if filename else fp))
+OSError: cannot identify image file <_io.BytesIO object at 0x7fd6f0169e08>
+203.192.243.73 - - [10/Mar/2017:13:13:06] "GET /Costing_details?type=details&name=asdf HTTP/1.1" 500 1719 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:13:12] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:13:13:16] HTTP 
+Request Headers:
+  CONNECTION: keep-alive
+  HOST: 138.197.220.205:8081
+  ACCEPT-ENCODING: gzip, deflate, sdch
+  USER-AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+  ACCEPT-LANGUAGE: en-US,en;q=0.8
+  REFERER: http://138.197.220.205:8081/?module=Costing.details
+  Remote-Addr: 203.192.243.73
+  X-REQUESTED-WITH: XMLHttpRequest
+  ACCEPT: */*
+[10/Mar/2017:13:13:16] HTTP 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cprequest.py", line 670, in respond
+    response.body = self.handler()
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/lib/encoding.py", line 220, in __call__
+    self.body = self.oldhandler(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cpdispatch.py", line 60, in __call__
+    return self.callable(*self.args, **self.kwargs)
+  File "app1.py", line 23, in Costing_details
+    filename = Costing_details.getxlsx("Costing_"+type, name)
+  File "/var/www/html/api/reports/Costing_details.py", line 247, in getxlsx
+    img = Image.open(BytesIO(requests.get(url).content))
+  File "/usr/local/lib/python3.5/dist-packages/PIL/Image.py", line 2349, in open
+    % (filename if filename else fp))
+OSError: cannot identify image file <_io.BytesIO object at 0x7fd6f0169e60>
+203.192.243.73 - - [10/Mar/2017:13:13:16] "GET /Costing_details?type=details&name=asdf HTTP/1.1" 500 1719 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:13:13:23] HTTP 
+Request Headers:
+  CONNECTION: keep-alive
+  HOST: 138.197.220.205:8081
+  USER-AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+  ACCEPT-LANGUAGE: en-US,en;q=0.8
+  UPGRADE-INSECURE-REQUESTS: 1
+  Remote-Addr: 203.192.243.73
+  ACCEPT-ENCODING: gzip, deflate, sdch
+  ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+[10/Mar/2017:13:13:23] HTTP 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cprequest.py", line 670, in respond
+    response.body = self.handler()
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/lib/encoding.py", line 220, in __call__
+    self.body = self.oldhandler(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cpdispatch.py", line 60, in __call__
+    return self.callable(*self.args, **self.kwargs)
+  File "app1.py", line 23, in Costing_details
+    filename = Costing_details.getxlsx("Costing_"+type, name)
+  File "/var/www/html/api/reports/Costing_details.py", line 247, in getxlsx
+    img = Image.open(BytesIO(requests.get(url).content))
+  File "/usr/local/lib/python3.5/dist-packages/PIL/Image.py", line 2349, in open
+    % (filename if filename else fp))
+OSError: cannot identify image file <_io.BytesIO object at 0x7fd6f0169e60>
+203.192.243.73 - - [10/Mar/2017:13:13:23] "GET /Costing_details?type=details&name=asdf HTTP/1.1" 500 1719 "" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:13:14:15] HTTP 
+Request Headers:
+  CONNECTION: keep-alive
+  HOST: 138.197.220.205:8081
+  USER-AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+  ACCEPT-LANGUAGE: en-US,en;q=0.8
+  UPGRADE-INSECURE-REQUESTS: 1
+  ACCEPT-ENCODING: gzip, deflate, sdch
+  CACHE-CONTROL: max-age=0
+  ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  Remote-Addr: 203.192.243.73
+[10/Mar/2017:13:14:15] HTTP 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cprequest.py", line 670, in respond
+    response.body = self.handler()
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/lib/encoding.py", line 220, in __call__
+    self.body = self.oldhandler(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/cherrypy/_cpdispatch.py", line 60, in __call__
+    return self.callable(*self.args, **self.kwargs)
+  File "app1.py", line 23, in Costing_details
+    filename = Costing_details.getxlsx("Costing_"+type, name)
+  File "/var/www/html/api/reports/Costing_details.py", line 247, in getxlsx
+    img = Image.open(BytesIO(requests.get(url).content))
+  File "/usr/local/lib/python3.5/dist-packages/PIL/Image.py", line 2349, in open
+    % (filename if filename else fp))
+OSError: cannot identify image file <_io.BytesIO object at 0x7fd6f0169f10>
+203.192.243.73 - - [10/Mar/2017:13:14:15] "GET /Costing_details?type=details&name=asdf HTTP/1.1" 500 1719 "" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+[10/Mar/2017:13:16:24] ENGINE Restarting because /var/www/html/api/reports/Costing_details.py changed.
+[10/Mar/2017:13:16:24] ENGINE Stopped thread 'Autoreloader'.
+[10/Mar/2017:13:16:24] ENGINE Bus STOPPING
+[10/Mar/2017:13:16:24] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('0.0.0.0', 8081)) shut down
+[10/Mar/2017:13:16:24] ENGINE Stopped thread '_TimeoutMonitor'.
+[10/Mar/2017:13:16:24] ENGINE Bus STOPPED
+[10/Mar/2017:13:16:24] ENGINE Bus EXITING
+[10/Mar/2017:13:16:24] ENGINE Bus EXITED
+[10/Mar/2017:13:16:24] ENGINE Waiting for child threads to terminate...
+[10/Mar/2017:13:16:24] ENGINE Re-spawning python3 app1.py
+[10/Mar/2017:13:16:24] ENGINE Listening for SIGTERM.
+[10/Mar/2017:13:16:24] ENGINE Listening for SIGUSR1.
+[10/Mar/2017:13:16:24] ENGINE Listening for SIGHUP.
+[10/Mar/2017:13:16:24] ENGINE Bus STARTING
+CherryPy Checker:
+The Application mounted at '' has an empty config.
+
+[10/Mar/2017:13:16:24] ENGINE Started monitor thread '_TimeoutMonitor'.
+[10/Mar/2017:13:16:24] ENGINE Started monitor thread 'Autoreloader'.
+[10/Mar/2017:13:16:24] ENGINE Serving on http://0.0.0.0:8081
+[10/Mar/2017:13:16:24] ENGINE Bus STARTED
+203.192.243.73 - - [10/Mar/2017:13:16:27] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:16:30] "GET /Costing_details?type=details&name=asdf HTTP/1.1" 200 31 "" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:16:35] "GET /Costing_details?type=details&name=asdf HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [10/Mar/2017:13:16:59] "GET /Costing_details?type=details&name=choc HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+218.193.131.246 - - [14/Mar/2017:02:48:30] "GET /ic.asp HTTP/1.1" 404 1225 "" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+180.97.215.139 - - [15/Mar/2017:04:46:18] "GET /manager/html HTTP/1.1" 404 1237 "" "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)"
+221.194.44.252 - - [15/Mar/2017:08:39:51] "GET /script HTTP/1.1" 404 1225 "" "python-requests/2.7.0 CPython/2.7.9 Windows/2003Server"
+180.97.215.139 - - [15/Mar/2017:16:08:23] "GET /manager/html HTTP/1.1" 404 1237 "" "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)"
+203.192.243.73 - - [16/Mar/2017:06:28:46] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+203.192.243.73 - - [16/Mar/2017:06:28:52] "GET /favicon.ico HTTP/1.1" 200 1406 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+89.248.167.131 - - [17/Mar/2017:01:15:12] "GET / HTTP/1.1" 200 28 "" ""
+198.20.69.74 - - [17/Mar/2017:02:45:08] "GET / HTTP/1.1" 200 28 "" ""
+60.243.124.192 - - [17/Mar/2017:05:16:06] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+60.243.124.192 - - [17/Mar/2017:05:16:08] "GET /favicon.ico HTTP/1.1" 200 1406 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+60.243.124.192 - - [17/Mar/2017:05:16:11] "GET /Costing_details?type=details&name= HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+60.243.124.192 - - [17/Mar/2017:05:16:41] "GET /?module=Costing.details HTTP/1.1" 200 1517 "http://pclotherp.tk/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+60.243.124.192 - - [17/Mar/2017:05:16:47] "GET /Costing_details?type=details&name=sample HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+60.243.124.192 - - [17/Mar/2017:05:17:08] "GET /Costing_details?type=summary&name=test HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+60.243.124.192 - - [17/Mar/2017:05:17:29] "GET /Costing_details?type=summary&name=choco HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+60.243.124.192 - - [17/Mar/2017:05:17:45] "GET /Costing_details?type=summary&name=test HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+60.243.124.192 - - [17/Mar/2017:05:18:00] "GET /Costing_details?type=summary&name=test,%20choc HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+60.243.124.192 - - [17/Mar/2017:05:18:18] "GET /Costing_details?type=summary&name=choc HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+60.243.124.192 - - [17/Mar/2017:05:18:36] "GET /Costing_details?type=summary&name=choc,%20sample HTTP/1.1" 200 31 "http://138.197.220.205:8081/?module=Costing.details" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+71.6.135.131 - - [19/Mar/2017:09:48:23] "GET / HTTP/1.1" 200 28 "" ""
+66.240.219.146 - - [19/Mar/2017:22:56:29] "GET / HTTP/1.1" 200 28 "" ""
+106.2.125.215 - - [20/Mar/2017:06:32:46] "GET / HTTP/1.1" 200 28 "" "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)"

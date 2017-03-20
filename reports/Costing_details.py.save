@@ -1,0 +1,261 @@
+import xlsxwriter
+# For images
+import os
+from io import BytesIO
+import sys
+from PIL import Image
+import requests
+from pymongo import MongoClient
+from bson.objectid import ObjectId
+
+client = MongoClient('mongodb://administrator:123123q@localhost:27017')
+db = client.test
+collection = db.Costing.details
+
+def getxlsx(module="", name=""):
+    if(module == ""):
+        try:
+            filename = sys.argv[1] + '.xlsx'
+        except IndexError:
+            filename = 'demo.xlsx'
+    else:
+        filename = module + '.xlsx'
+
+    # Import urlopen() for either Python 2 or 3.
+    try:
+        from urllib.request import urlopen
+    except ImportError:
+        from urllib2 import urlopen
+
+    docs = collection.find({"$text":{"$search":name}})
+
+    # Create an new Excel file and add a worksheet.
+    workbook = xlsxwriter.Workbook(filename)
+    for doc in docs:
+        worksheet = workbook.add_worksheet(doc['name'])
+
+        # Widen the first column to make the text clearer.
+        worksheet.set_column('A:A', 20)
+
+        # Add a bold format to use to highlight cells.
+        bold = workbook.add_format({'bold': True})
+        border = workbook.add_format({'bold':True,'border':1})
+        bo = workbook.add_format({'border':1})
+
+        # Write some simple text.
+        worksheet.write('A1', 'Style #')
+        worksheet.write('A2', 'Color')
+        worksheet.write('A3', 'Buyer')
+        worksheet.write('A4', 'Division')
+        worksheet.write('A5', 'Brand')
+        worksheet.write('A6', 'Season')
+        worksheet.write('A7', 'Garment Desc')
+
+        worksheet.write('B1', doc['style'])
+        worksheet.write('B2', doc['color'])
+        if (doc['buyer'] == 'domestic'):  worksheet.write('B3', doc['domestic'])
+        if (doc['buyer'] == 'export'):  worksheet.write('B3', doc['export'])
+        if (doc['buyer'] == 'domestic'):  worksheet.write('B4', doc['ddivision'])
+        if (doc['buyer'] == 'export'):  worksheet.write('B4', doc['xdivision'])
+        if (doc['buyer'] == 'domestic'):  worksheet.write('B5', doc['dbrand'])
+        if (doc['buyer'] == 'export'):  worksheet.write('B5', doc['xbrand'])
+        worksheet.write('B6', doc['season'])
+
+        worksheet.write('C1', 'Order Qty')
+        worksheet.write('C2', 'Delivery Date')
+
+        worksheet.write('D1',doc['qty'])
+        worksheet.write('D2',doc['deldate'])
+
+        # Text with formatting.
+        # worksheet.set_row(8, 20, border)
+        worksheet.write('A8', 'Item', border)
+        worksheet.write('B8', 'Desc/Size/Col/Width/Placement/Remark', border)
+        worksheet.write('C8', 'Supplier', border)
+        worksheet.write('D8', 'Rate', border)
+        worksheet.write('E8', 'Unit', border)
+        worksheet.write('F8', 'F Cons.', border)
+        worksheet.write('G8', 'Unit', border)
+        worksheet.write('H8', 'Ttl Amt/Pc', border)
+
+        worksheet.write('A9', 'Fabric', border)
+        worksheet.write('B9', '', bo)
+        worksheet.write('C9', '', bo)
+        worksheet.write('D9', '', bo)
+        worksheet.write('E9', '', bo)
+        worksheet.write('F9', '', bo)
+        worksheet.write('G9', '', bo)
+        worksheet.write('H9', '', bo)
+        i = 9
+        if 'items' in doc:
+            for fabric in doc['items']['fabric']:
+                worksheet.write(i, 0, fabric['item'], bo)
+                worksheet.write(i, 1, '', bo)
+                worksheet.write(i, 2, fabric['supplier'], bo)
+                worksheet.write(i, 3, fabric['rate2'], bo)
+                worksheet.write(i, 4, fabric['unit2'], bo)
+                worksheet.write(i, 5, fabric['fconsume2'], bo)
+                worksheet.write(i, 6, fabric['unit1'], bo)
+                worksheet.write(i, 7, fabric['amount2'], bo)
+                i = i + 1
+        if 'items2' in doc:
+            for fabric in doc['items2']['fabric2']:
+                worksheet.write(i, 0, fabric['item'], bo)
+                worksheet.write(i, 1, '', bo)
+                worksheet.write(i, 2, fabric['supplier'], bo)
+                worksheet.write(i, 3, fabric['rate2'], bo)
+                worksheet.write(i, 4, fabric['unit2'], bo)
+                worksheet.write(i, 5, fabric['fconsume2'], bo)
+                worksheet.write(i, 6, fabric['unit1'], bo)
+                worksheet.write(i, 7, fabric['amount2'], bo)
+                i = i + 1
+        worksheet.write(i, 0, 'Accesorries', border)
+        worksheet.write(i, 1, '', bo)
+        worksheet.write(i, 2, '', bo)
+        worksheet.write(i, 3, '', bo)
+        worksheet.write(i, 4, '', bo)
+        worksheet.write(i, 5, '', bo)
+        worksheet.write(i, 6, '', bo)
+        worksheet.write(i, 7, '', bo)
+        i = i + 1
+        if 'items' in doc:
+            for acc in doc['items']['accessories']:
+                worksheet.write(i, 0, acc['item'], bo)
+                worksheet.write(i, 1, '', bo)
+                worksheet.write(i, 2, acc['supplier'], bo)
+                worksheet.write(i, 3, acc['rate2'], bo)
+                worksheet.write(i, 4, acc['unit2'], bo)
+                worksheet.write(i, 5, acc['fconsume2'], bo)
+                worksheet.write(i, 6, acc['unit1'], bo)
+                worksheet.write(i, 7, acc['amount2'], bo)
+                i = i + 1
+        if 'items2' in doc:
+            for acc in doc['items2']['accessories2']:
+                worksheet.write(i, 0, acc['item'], bo)
+                worksheet.write(i, 1, '', bo)
+                worksheet.write(i, 2, acc['supplier'], bo)
+                worksheet.write(i, 3, acc['rate2'], bo)
+                worksheet.write(i, 4, acc['unit2'], bo)
+                worksheet.write(i, 5, acc['fconsume2'], bo)
+                worksheet.write(i, 6, acc['unit1'], bo)
+                worksheet.write(i, 7, acc['amount2'], bo)
+                i = i + 1
+        worksheet.write(i, 0, 'Process - Manufacturing', border)
+        worksheet.write(i, 1, '', bo)
+        worksheet.write(i, 2, '', bo)
+        worksheet.write(i, 3, '', bo)
+        worksheet.write(i, 4, '', bo)
+        worksheet.write(i, 5, '', bo)
+        worksheet.write(i, 6, '', bo)
+        worksheet.write(i, 7, '', bo)
+        i = i + 1
+        if 'items' in doc:
+            for process in doc['items']['process']:
+                worksheet.write(i, 0, process['item'], bo)
+                worksheet.write(i, 1, '', bo)
+                worksheet.write(i, 2, process['supplier'], bo)
+                worksheet.write(i, 3, process['rate2'], bo)
+                worksheet.write(i, 4, process['unit2'], bo)
+                worksheet.write(i, 5, process['fconsume2'], bo)
+                worksheet.write(i, 6, process['unit1'], bo)
+                worksheet.write(i, 7, process['amount2'], bo)
+                i = i + 1
+        if 'items2' in doc:
+            for process in doc['items2']['process2']:
+                worksheet.write(i, 0, process['item'], bo)
+                worksheet.write(i, 1, '', bo)
+                worksheet.write(i, 2, process['supplier'], bo)
+                worksheet.write(i, 3, process['rate2'], bo)
+                worksheet.write(i, 4, process['unit2'], bo)
+                worksheet.write(i, 5, process['fconsume2'], bo)
+                worksheet.write(i, 6, process['unit1'], bo)
+                worksheet.write(i, 7, process['amount2'], bo)
+                i = i + 1
+        worksheet.write(i, 0, 'Other Expenses', border)
+        worksheet.write(i, 1, '', bo)
+        worksheet.write(i, 2, '', bo)
+        worksheet.write(i, 3, '', bo)
+        worksheet.write(i, 4, '', bo)
+        worksheet.write(i, 5, '', bo)
+        worksheet.write(i, 6, '', bo)
+        worksheet.write(i, 7, '', bo)
+        i = i + 1
+        if 'expense' in doc:
+            for expense in doc['expense']:
+                worksheet.write(i, 0, expense['item'], bo)
+                worksheet.write(i, 1, '', bo)
+                worksheet.write(i, 2, '', bo)
+                worksheet.write(i, 3, '', bo)
+                worksheet.write(i, 4, '', bo)
+                worksheet.write(i, 5, '', bo)
+                worksheet.write(i, 6, '', bo)
+                worksheet.write(i, 7, expense['amount2'], bo)
+                i = i + 1
+        worksheet.write(i, 0, 'Cost', border)
+        worksheet.write(i, 1, '', bo)
+        worksheet.write(i, 2, '', bo)
+        worksheet.write(i, 3, '', bo)
+        worksheet.write(i, 4, '', bo)
+        worksheet.write(i, 5, '', bo)
+        worksheet.write(i, 6, '', bo)
+        worksheet.write(i, 7, doc['cost']['cost2'], bo)
+        i = i + 1
+
+        worksheet.write(i, 1, 'Add Rejection')
+        worksheet.write(i, 7, doc['cost']['rej2'])
+        i = i + 1
+        worksheet.write(i, 1, 'Total')
+        worksheet.write(i, 7, doc['cost']['total2'])
+        i = i + 1
+        worksheet.write(i, 1, 'Add overheads')
+        worksheet.write(i, 7, doc['cost']['ovh2'])
+        i = i + 1
+        worksheet.write(i, 1, 'Total Cost')
+        worksheet.write(i, 7, doc['cost']['tcost2'])
+        i = i + 1
+        worksheet.write(i, 1, 'Add Commission')
+        worksheet.write(i, 7, doc['cost']['com2'])
+        i = i + 1
+        worksheet.write(i, 1, doc['delivery']+' (INR)')
+        worksheet.write(i, 7, doc['cost']['del2'])
+        i = i + 1
+        worksheet.write(i, 1, 'Exchange Rate')
+        worksheet.write(i, 7, doc['cost']['exr2'])
+        i = i + 1
+        worksheet.write(i, 1, doc['delivery']+' (Currency)')
+        worksheet.write(i, 7, doc['cost']['delc2'])
+        i = i + 1
+
+        worksheet.write(i, 5, 'Quoted', bold)
+        if 'quoted' in doc:
+            worksheet.write(i, 7, doc['quoted'])
+        i = i + 1
+        worksheet.write(i, 0, 'Remark:')
+        if 'remark' in doc:
+            worksheet.write(i, 1, doc['remark'])
+        i = i + 1
+
+        # Write some numbers, with row/column notation.
+        # worksheet.write(2, 0, 123)
+        # worksheet.write(3, 0, 123.456)
+
+        # Insert an image from url.
+        if 'pic'in doc: url = 'http://138.197.220.205:3002/upload/'+doc['pic']
+        else: url = 'http://www.tompetty.com/sites/g/files/g2000004366/f/Sample-image10-highres.jpg'
+        # url = 'http://www.tompetty.com/sites/g/files/g2000004366/f/Sample-image10-highres.jpg'
+        basewidth = 150
+        img = Image.open(BytesIO(requests.get(url).content))
+        wpercent = (basewidth/float(img.size[0]))
+        hsize = int((float(img.size[1])*float(wpercent)))
+        img = img.resize((basewidth,hsize), Image.ANTIALIAS)
+        # image_data = BytesIO(urlopen(url).read())
+        output = BytesIO()
+        img.save(output,format="jpeg")
+        output.seek(0)
+        image_data = output
+        worksheet.insert_image('F1', url, {'image_data': image_data})
+        # worksheet.insert_image('B5','cat.jpg')
+
+    workbook.close()
+
+    return filename
